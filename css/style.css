@@ -14,7 +14,11 @@ body {
     gap: 0.6rem;
     margin-left: auto;
 }
-
+.home-hero .hero-text,
+.home-hero img {
+    flex: 1;
+    min-width: 0;
+}
 .nav-actions button {
     padding: 0.6rem 1rem;
     border: 1px solid white;
