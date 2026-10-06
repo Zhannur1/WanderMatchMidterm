@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderMatch | Find Your Match</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="site-navbar">
+            <a href="index.html" class="site-logo">WanderMatch</a>
+            <nav class="site-links" aria-label="Main navigation">
+                <a href="index.html">Home</a> <a href="stories.html">Travel Stories</a> <a href="match.html">Your Story</a> <a href="contact.html" class="active">Find Your Match</a>
+            </nav>
+            <div class="nav-actions">
+                <button type="button">Log In</button>
+                <button type="button" class="primary-button">Plan a Trip</button>
+            </div>
+        </div>
+        
+        <p class="tagline">Don't choose a destination. Discover your match.</p>
+    </header>
+
+    <main>
+        <section class="survey-hero">
+            <div class="container">
+                <div class="row align-items-center g-4">
+
+                    <div class="col-12 col-lg-6">
+                        <img src="images/story-madeira.jpg"
+                            class="img-fluid rounded-3"
+                            alt="Madeira coast">
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <p class="small-title">PERSONAL TRAVEL MATCHING</p>
+                        <h1>Find a place that feels like you.</h1>
+                        <p>
+                            Answer a few simple questions about your travel style,
+                            interests and budget.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Tell Us About Your Trip</h2>
+
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>About You</legend>
+
+                    <p>
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="full-name" required>
+                    </p>
+
+                    <p>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Travel Style</legend>
+
+                    <p>Choose one:</p>
+
+                    <input type="radio" id="relaxation" name="travel-style" value="relaxation" required>
+                    <label for="relaxation">Relaxation</label>
+
+                    <input type="radio" id="adventure" name="travel-style" value="adventure">
+                    <label for="adventure">Adventure</label>
+
+                    <input type="radio" id="culture" name="travel-style" value="culture">
+                    <label for="culture">Culture</label>
+
+                    <input type="radio" id="city" name="travel-style" value="city">
+                    <label for="city">City Life</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Interests</legend>
+
+                    <input type="checkbox" id="nature" name="interests" value="nature">
+                    <label for="nature">Nature</label>
+
+                    <input type="checkbox" id="food" name="interests" value="food">
+                    <label for="food">Food</label>
+
+                    <input type="checkbox" id="history" name="interests" value="history">
+                    <label for="history">History</label>
+
+                    <input type="checkbox" id="beaches" name="interests" value="beaches">
+                    <label for="beaches">Beaches</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Budget</legend>
+
+                    <p>
+                        <label for="budget">Total budget (USD)</label>
+                        <input type="number" id="budget" name="budget" min="100" placeholder="e.g. 2000">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Your Dream Trip</legend>
+
+                    <p>
+                        <label for="dream-trip">Describe your ideal trip</label>
+                    </p>
+
+                    <textarea id="dream-trip" name="dream-trip" rows="5"></textarea>
+                </fieldset>
+
+                <button type="submit">Find My Match</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 WanderMatch. Created by Zhannur Maratova.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderMatch | Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="site-navbar">
+            <a href="index.html" class="site-logo">WanderMatch</a>
+            <nav class="site-links" aria-label="Main navigation">
+                <a href="index.html" class="active">Home</a> <a href="stories.html">Travel Stories</a> <a href="match.html">Your Story</a> <a href="contact.html">Find Your Match</a>
+            </nav>
+            <div class="nav-actions">
+             <button type="button">Log In</button>
+            <button type="button" class="primary-button">Plan a Trip</button>
+        </div>
+        </div>
+        <p class="tagline">Don't choose a destination. Discover your match.</p>
+    </header>
+
+    <main>
+        <section class="home-hero">
+            <div class="hero-text">
+                <p class="small-title">PERSONAL TRAVEL MATCHING</p>
+                <h1>Find a place that feels like you.</h1>
+                <p>
+                    WanderMatch helps you discover destinations based on your interests,
+                    travel style, budget and the kind of experience you want.
+                </p>
+                <a href="contact.html" class="main-button">Find Your Match</a>
+            </div>
+
+            <img src="images/story-madeira.jpg" alt="Madeira coast">
+        </section>
+
+        <section>
+            <h2>How WanderMatch Works</h2>
+            <p>Three simple steps help you move from preferences to destination ideas.</p>
+
+            <div class="steps">
+                <article class="step-card">
+                    <span>1</span>
+                    <h3>Choose</h3>
+                    <p>Tell us what kind of trip you enjoy.</p>
+                </article>
+
+                <article class="step-card">
+                    <span>2</span>
+                    <h3>Match</h3>
+                    <p>See places that fit your travel vibe.</p>
+                </article>
+
+                <article class="step-card">
+                    <span>3</span>
+                    <h3>Plan</h3>
+                    <p>Compare ideas and start planning your trip.</p>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="accordion" id="faq">
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            How does WanderMatch work?
+                        </button>
+                    </h3>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+                        <div class="accordion-body">
+                            You choose your travel preferences and WanderMatch shows destination ideas that fit them.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            Can I choose a budget?
+                        </button>
+                    </h3>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faq">
+                        <div class="accordion-body">
+                            Yes. Budget is one of the questions in the Find Your Match form.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Where can I read about destinations?
+                        </button>
+                    </h3>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faq">
+                        <div class="accordion-body">
+                            Open Travel Stories to see destination ideas and short descriptions.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 WanderMatch. Created by Zhannur Maratova.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
