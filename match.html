@@ -7,118 +7,101 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
     <header class="site-header">
         <div class="site-navbar">
             <a href="index.html" class="site-logo">WanderMatch</a>
             <nav class="site-links" aria-label="Main navigation">
-                <a href="index.html">Home</a> <a href="stories.html">Travel Stories</a> <a href="match.html" class="active">Your Story</a> <a href="contact.html">Find Your Match</a>
+                <a href="index.html">Home</a>
+                <a href="stories.html">Travel Stories</a>
+                <a href="match.html" class="active" aria-current="page">Your Story</a>
+                <a href="contact.html">Find Your Match</a>
             </nav>
-            <div class="nav-actions">
-             <button type="button">Log In</button>
-            <button type="button" class="primary-button">Plan a Trip</button>
-        </div>
         </div>
         <p class="tagline">Don't choose a destination. Discover your match.</p>
     </header>
 
-
-    <main>
+    <main id="mainContent">
         <section>
             <p class="small-title">YOUR STORY</p>
             <h1>Your memories are still here.</h1>
-            <p>
-                Keep small notes about the places you visited, what you liked,
-                and how each trip felt to you.
-            </p>
-
-            <a href="#" class="add-memory-button">+ Add New Memory</a>
+            <p>Keep personal travel notes in this browser and see your average trip rating update automatically.</p>
+            <button type="button" id="toggleMemoryForm" class="add-memory-button">+ Add New Memory</button>
+            <p id="memoryStats" class="memory-stats" aria-live="polite"></p>
         </section>
 
-        <section class="memory-cards">
-            <article class="memory-card">
-                <img src="images/story-madeira.jpg" alt="Madeira">
-                <div class="memory-text">
-                    <h2>Madeira</h2>
-                    <p class="memory-date">Visited in May 2026</p>
-                    <p>
-                        I loved the mountain views and quiet coastal towns.
-                        My favorite part was walking near the ocean in the evening.
-                    </p>
-                    <a href="#" class="memory-link">Open</a>
+        <section id="memoryFormPanel" class="memory-form-panel" hidden>
+            <h2>Add a travel memory</h2>
+            <form id="memoryForm" novalidate>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label" for="memory-place">Place</label>
+                        <input class="form-control" id="memory-place" type="text" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="memory-date">Visit date</label>
+                        <input class="form-control" id="memory-date" type="date" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label" for="memory-rating">Rating (1–5)</label>
+                        <input class="form-control" id="memory-rating" type="number" min="1" max="5" step="0.1" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label" for="memory-text">Memory</label>
+                        <textarea class="form-control" id="memory-text" rows="4" required></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label" for="memory-image">Travel photo <span class="optional-label">(optional)</span></label>
+                        <input class="form-control" id="memory-image" type="file" accept="image/png,image/jpeg,image/webp">
+                        <div class="form-text">Upload your own photo. If you skip it, WanderMatch uses a neutral airplane placeholder instead of a photo from another destination.</div>
+                        <div id="memoryImageError" class="field-error" role="alert"></div>
+                    </div>
                 </div>
-            </article>
-
-            <article class="memory-card">
-                <img src="images/story-bali.jpg" alt="Bali">
-                <div class="memory-text">
-                    <h2>Bali</h2>
-                    <p class="memory-date">Visited in August 2025</p>
-                    <p>
-                        This trip felt calm and colorful. I enjoyed the temples,
-                        local food and slower pace of the island.
-                    </p>
-                    <a href="#" class="memory-link">Open</a>
-                </div>
-            </article>
-
-            <article class="memory-card">
-                <img src="images/story-tokyo.jpg" alt="Tokyo">
-                <div class="memory-text">
-                    <h2>Tokyo</h2>
-                    <p class="memory-date">Visited in March 2025</p>
-                    <p>
-                        Tokyo was busy but exciting. I liked how modern areas
-                        and traditional places felt completely different.
-                    </p>
-                    <a href="#" class="memory-link">Open</a>
-                </div>
-            </article>
+                <p id="memoryFormError" class="field-error temporary-message" role="alert"></p>
+                <button class="main-form-button" type="submit">Save Memory</button>
+                <p id="memorySaved" class="success-message temporary-message" role="status"></p>
+            </form>
         </section>
+
+        <p id="memoryEmpty" class="empty-state" hidden>No memories yet. Add your first one above.</p>
+        <p id="memoryActionStatus" class="success-message temporary-message" role="status"></p>
+        <section class="memory-cards" id="memoryCards" aria-live="polite"></section>
 
         <section>
             <h2>My Travel Overview</h2>
-            <p>A quick summary based on my own notes and ratings.</p>
-
+            <p>A quick summary generated from the same memory data.</p>
             <div class="table-wrap">
                 <table>
                     <caption>Visited places</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">Place</th>
-                            <th scope="col">Best memory</th>
-                            <th scope="col">Rating</th>
-                            <th scope="col">Overall impression</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">Madeira</th>
-                            <td>Ocean and mountain views</td>
-                            <td>5 / 5</td>
-                            <td>Peaceful, active and very scenic</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Bali</th>
-                            <td>Temples and local food</td>
-                            <td>4 / 5</td>
-                            <td>Relaxing, warm and culturally interesting</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Tokyo</th>
-                            <td>Food and different neighborhoods</td>
-                            <td>5 / 5</td>
-                            <td>Fast, exciting and full of variety</td>
-                        </tr>
-                    </tbody>
+                    <thead><tr><th scope="col">Place</th><th scope="col">Memory</th><th scope="col">Rating</th><th scope="col">Visit date</th></tr></thead>
+                    <tbody id="memoryTableBody"></tbody>
                 </table>
             </div>
         </section>
     </main>
+
+    <div id="deleteConfirmOverlay" class="confirm-overlay" hidden>
+        <section class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="deleteConfirmTitle" aria-describedby="deleteConfirmText">
+            <p class="small-title">CONFIRM DELETION</p>
+            <h2 id="deleteConfirmTitle">Delete this memory?</h2>
+            <p id="deleteConfirmText">Are you sure you want to delete <strong id="deleteMemoryName">this memory</strong>? This action cannot be undone.</p>
+            <div class="confirm-actions">
+                <button type="button" id="cancelDeleteMemory" class="secondary-action-button">Cancel</button>
+                <button type="button" id="confirmDeleteMemory" class="danger-action-button">Delete permanently</button>
+            </div>
+        </section>
+    </div>
+
     <footer>
         <p>&copy; 2026 WanderMatch. Created by Zhannur Maratova.</p>
+        <p> All pictures are taken from www.pexels.com</p>
+        <p> Built with Bootstrap and jQuery</p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/memories.js"></script>
 </body>
 </html>

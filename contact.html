@@ -7,126 +7,122 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
     <header class="site-header">
         <div class="site-navbar">
             <a href="index.html" class="site-logo">WanderMatch</a>
             <nav class="site-links" aria-label="Main navigation">
-                <a href="index.html">Home</a> <a href="stories.html">Travel Stories</a> <a href="match.html">Your Story</a> <a href="contact.html" class="active">Find Your Match</a>
+                <a href="index.html">Home</a>
+                <a href="stories.html">Travel Stories</a>
+                <a href="match.html">Your Story</a>
+                <a href="contact.html" class="active" aria-current="page">Find Your Match</a>
             </nav>
-            <div class="nav-actions">
-                <button type="button">Log In</button>
-                <button type="button" class="primary-button">Plan a Trip</button>
-            </div>
         </div>
-        
         <p class="tagline">Don't choose a destination. Discover your match.</p>
     </header>
 
-    <main>
-        <section class="survey-hero">
-            <div class="container">
-                <div class="row align-items-center g-4">
-
-                    <div class="col-12 col-lg-6">
-                        <img src="images/story-madeira.jpg"
-                            class="img-fluid rounded-3"
-                            alt="Madeira coast">
-                    </div>
-
-                    <div class="col-12 col-lg-6">
-                        <p class="small-title">PERSONAL TRAVEL MATCHING</p>
-                        <h1>Find a place that feels like you.</h1>
-                        <p>
-                            Answer a few simple questions about your travel style,
-                            interests and budget.
-                        </p>
-                    </div>
-
+    <main id="mainContent">
+        <section class="survey-hero container-fluid px-0">
+            <div class="row align-items-center g-4">
+                <div class="col-12 col-lg-6">
+                    <img src="images/story-madeira.jpg" class="img-fluid rounded-3" alt="Madeira coast and ocean">
+                </div>
+                <div class="col-12 col-lg-6">
+                    <p class="small-title">PERSONAL TRAVEL MATCHING</p>
+                    <h1>Find a place that feels like you.</h1>
+                    <p>Answer a few questions and WanderMatch will calculate your top three destination matches.</p>
                 </div>
             </div>
         </section>
 
         <section>
             <h2>Tell Us About Your Trip</h2>
+            <p>Fields marked with * are required. Validation messages appear below the related field.</p>
 
-            <form action="#" method="post">
+            <form id="matchForm" class="match-form" novalidate>
                 <fieldset>
                     <legend>About You</legend>
-
-                    <p>
-                        <label for="full-name">Full Name</label>
-                        <input type="text" id="full-name" name="full-name" required>
-                    </p>
-
-                    <p>
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </p>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label" for="full-name">Full Name *</label>
+                            <input class="form-control" type="text" id="full-name" autocomplete="name" required>
+                            <div id="full-nameError" class="field-error" role="alert"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="email">Email *</label>
+                            <input class="form-control" type="email" id="email" autocomplete="email" required>
+                            <div id="emailError" class="field-error" role="alert"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="phone">Phone *</label>
+                            <input class="form-control" type="tel" id="phone" autocomplete="tel" placeholder="+7 777 123 45 67" required>
+                            <div id="phoneError" class="field-error" role="alert"></div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label" for="budget">Total budget (USD) *</label>
+                            <input class="form-control" type="number" id="budget" min="300" max="15000" placeholder="2000" required>
+                            <div id="budgetError" class="field-error" role="alert"></div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label" for="trip-days">Trip length *</label>
+                            <input class="form-control" type="number" id="trip-days" min="2" max="30" placeholder="7" required>
+                            <div id="trip-daysError" class="field-error" role="alert"></div>
+                        </div>
+                    </div>
                 </fieldset>
 
                 <fieldset>
-                    <legend>Travel Style</legend>
-
-                    <p>Choose one:</p>
-
-                    <input type="radio" id="relaxation" name="travel-style" value="relaxation" required>
-                    <label for="relaxation">Relaxation</label>
-
-                    <input type="radio" id="adventure" name="travel-style" value="adventure">
-                    <label for="adventure">Adventure</label>
-
-                    <input type="radio" id="culture" name="travel-style" value="culture">
-                    <label for="culture">Culture</label>
-
-                    <input type="radio" id="city" name="travel-style" value="city">
-                    <label for="city">City Life</label>
+                    <legend>Travel Style *</legend>
+                    <div class="choice-grid">
+                        <label class="choice-card"><input class="form-check-input" type="radio" name="travel-style" value="relaxation"> Relaxation</label>
+                        <label class="choice-card"><input class="form-check-input" type="radio" name="travel-style" value="adventure"> Adventure</label>
+                        <label class="choice-card"><input class="form-check-input" type="radio" name="travel-style" value="culture"> Culture</label>
+                        <label class="choice-card"><input class="form-check-input" type="radio" name="travel-style" value="city"> City Life</label>
+                    </div>
+                    <div id="styleError" class="field-error" role="alert"></div>
                 </fieldset>
 
                 <fieldset>
-                    <legend>Interests</legend>
-
-                    <input type="checkbox" id="nature" name="interests" value="nature">
-                    <label for="nature">Nature</label>
-
-                    <input type="checkbox" id="food" name="interests" value="food">
-                    <label for="food">Food</label>
-
-                    <input type="checkbox" id="history" name="interests" value="history">
-                    <label for="history">History</label>
-
-                    <input type="checkbox" id="beaches" name="interests" value="beaches">
-                    <label for="beaches">Beaches</label>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Budget</legend>
-
-                    <p>
-                        <label for="budget">Total budget (USD)</label>
-                        <input type="number" id="budget" name="budget" min="100" placeholder="e.g. 2000">
-                    </p>
+                    <legend>Interests *</legend>
+                    <div class="choice-grid">
+                        <label class="choice-card"><input class="form-check-input" type="checkbox" name="interests" value="nature"> Nature</label>
+                        <label class="choice-card"><input class="form-check-input" type="checkbox" name="interests" value="food"> Food</label>
+                        <label class="choice-card"><input class="form-check-input" type="checkbox" name="interests" value="history"> History</label>
+                        <label class="choice-card"><input class="form-check-input" type="checkbox" name="interests" value="beaches"> Beaches</label>
+                        <label class="choice-card"><input class="form-check-input" type="checkbox" name="interests" value="culture"> Culture</label>
+                    </div>
+                    <div id="interestsError" class="field-error" role="alert"></div>
                 </fieldset>
 
                 <fieldset>
                     <legend>Your Dream Trip</legend>
-
-                    <p>
-                        <label for="dream-trip">Describe your ideal trip</label>
-                    </p>
-
-                    <textarea id="dream-trip" name="dream-trip" rows="5"></textarea>
+                    <label class="form-label" for="dream-trip">Describe your ideal trip *</label>
+                    <textarea class="form-control" id="dream-trip" rows="5" placeholder="For example: I want a week with local food, scenic walks and a few cultural activities." required></textarea>
+                    <div id="dream-tripError" class="field-error" role="alert"></div>
                 </fieldset>
 
-                <button type="submit">Find My Match</button>
+                <button class="main-form-button" type="submit">Find My Match</button>
+                <p id="formSuccess" class="success-message temporary-message" role="status"></p>
             </form>
+        </section>
+
+        <section id="matchResults" class="match-results" hidden aria-labelledby="matchResultsTitle">
+            <p class="small-title">YOUR RESULTS</p>
+            <h2 id="matchResultsTitle">Your top destination matches</h2>
+            <div id="matchResultList" class="match-result-list" aria-live="polite"></div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2026 WanderMatch. Created by Zhannur Maratova.</p>
+        <p> All pictures are taken from www.pexels.com</p>
+        <p> Built with Bootstrap and jQuery</p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/matcher.js"></script>
 </body>
 </html>
